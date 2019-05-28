@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="col-md-offset-3 col-md-6">
+        <div style="border-bottom: 1px solid #d5d5d5">
+            <form class="form-horizontal" method="post">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">机器名称</label>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text" name="name" maxlength="32" required id="id_name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">内存</label>
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" name="ddr" value="4" required id="id_ddr">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">硬盘</label>
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" name="disk" value="320" required id="id_disk">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">固态</label>
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" name="ssd" value="128" required id="id_ssd">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">CPU</label>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text" name="cpu" maxlength="32" required id="id_cpu">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">MAC</label>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text" name="mac" maxlength="32" required id="id_mac">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">IP</label>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text" name="ip" maxlength="128" required id="id_ip">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">供货商</label>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text" name="productor" maxlength="32" required id="id_productor">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">系统</label>
+                    <div class="col-md-6">
+                        <select class="form-control" name="systemtype" id="id_systemtype">
+                            {% for s in systypes %}
+                                <option value="{{ s.id }}" selected>{{ s.name }}</option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">机器类型</label>
+                    <div class="col-md-6">
+                        <select class="form-control" name="servicetype" id="id_servicetype">
+                          {% for s in stypes %}
+                                <option value="{{ s.id }}" selected>{{ s.name }}</option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">运维</label>
+                    <div class="col-md-6">
+                        <select class="form-control" name="oper" id="id_oper">
+                          {% for s in os %}
+                                <option value="{{ s.id }}" selected>{{ s.name }}</option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-6">
+                        <input class="form-control" type="submit" value="提交" />
+                    </div>
+                </div>
+
+
+
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

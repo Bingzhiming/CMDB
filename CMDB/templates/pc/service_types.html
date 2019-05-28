@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="col-md-offset-2 col-md-10" style="height:100%;background-color: whitesmoke;margin-top: -20px">
+            <a class="btn btn-success" href="{% url 'pc_add_service_type' %}" style="margin-top: 5px">添加新类型</a>
+            <table class="table table-striped" style="border: 1px solid #dbdbdb;margin-top: 5px">
+                <thead>
+                    <td><b>服务器类型ID</b></td>
+                    <td><b>名称</b></td>
+                    <td><b>地址</b></td>
+                    <td><b>创建时间</b></td>
+                    <td><b>操作</b></td>
+                </thead>
+                {% for s in sts %}
+                <tr>
+                    <td>{{ s.id }}</td>
+                    <td>{{ s.name }}</td>
+                    <td>{{ s.addr }}</td>
+                    <td>{{ s.ct }}</td>
+                    <td>
+                        <a href="#" class="label label-success">详情</a>
+                        <a href="#" class="label label-info">编辑</a>
+                        <a href="#" class="label label-danger">删除</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <nav style="text-align: center">
+                <ul class="pagination" style="margin-top: 0px">
+                    <li><a><span>&laquo;</span></a></li>
+                    <li><a>1</a></li>
+                    <li><a>2</a></li>
+                    <li><a>3</a></li>
+                    <li><a>4</a></li>
+                    <li><a>5</a></li>
+                    <li><a><span>&raquo;</span></a></li>
+                </ul>
+            </nav>
+        </div>
+{% endblock %}
